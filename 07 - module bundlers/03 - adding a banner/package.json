@@ -1,0 +1,16 @@
+{
+	"name": "handyman",
+	"description": "A simple utility library",
+	"version": "1.0.0",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/rollup/rollup"
+	},
+	"scripts": {
+		"js": "rollup --config"
+	},
+	"devDependencies": {
+		"rollup": "^2.4.0"
+	}
+}
