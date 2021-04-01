@@ -8,9 +8,9 @@ export default formats.map(function (format) {
 	return {
 		input: 'index.js',
 		output: {
-			file: `spork${format === 'iife' ? '' : `.${format}`}.js`,
-			format: 'iife',
-			name: 'spork',
+			file: `handyman${format === 'iife' ? '' : `.${format}`}.js`,
+			format: format,
+			name: 'handyman',
 			banner: banner
 		}
 	};

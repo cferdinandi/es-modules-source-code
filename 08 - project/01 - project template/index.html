@@ -13,24 +13,9 @@
 </head>
 <body>
 
-	<h1>Spork.js</h1>
-
-	<p>This one all takes place in the console.</p>
-
-	<p>
-		<button>1</button>
-		<button>2</button>
-		<button>3</button>
-		<button>4</button>
-		<button>5</button>
-	</p>
 
 	<script src="spork.js"></script>
 	<script>
-		// Get some elements
-		let btns = spork.$('button');
-		console.log('btns', btns);
-
 		// Build a query string
 		let query = spork.buildQuery({
 			name: 'Chris',
@@ -51,7 +36,7 @@
 		console.log('typeNum', typeNum);
 		console.log('typeStr', typeStr);
 
-		// Immutably clone an obj
+		// Immutably clone an object
 		let lunch = {
 			name: 'Chris',
 			lunch: 'Turkey Sandwich',

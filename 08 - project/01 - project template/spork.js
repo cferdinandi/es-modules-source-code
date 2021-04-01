@@ -7,16 +7,6 @@ let spork = (function () {
 	'use strict';
 
 	/**
-	 * Get an array of all matching elements in the DOM
-	 * @param  {String} selector The element selector
-	 * @param  {Node}   parent   The parent to search in [optional]
-	 * @return {Array}           The elements
-	 */
-	function $ (selector, parent) {
-	    return Array.from((parent ? parent : document).querySelectorAll(selector));
-	}
-
-	/**
 	 * More accurately check the type of a JavaScript object
 	 * https://vanillajstoolkit.com/helpers/truetypeof/
 	 * @param  {Object} obj The object
@@ -47,24 +37,16 @@ let spork = (function () {
 	function copy (obj) {
 
 		/**
-		 * Copy properties from the original object to the clone
-		 * @param {Object|Function} clone The cloned object
-		 */
-		function copyProps (clone) {
-			for (let key in obj) {
-				if (obj.hasOwnProperty(key)) {
-					clone[key] = copy(obj[key]);
-				}
-			}
-		}
-
-		/**
 		 * Create an immutable copy of an object
 		 * @return {Object}
 		 */
 		function cloneObj () {
 			let clone = {};
-			copyProps(clone);
+			for (let key in obj) {
+				if (obj.hasOwnProperty(key)) {
+					clone[key] = copy(obj[key]);
+				}
+			}
 			return clone;
 		}
 
@@ -78,40 +60,6 @@ let spork = (function () {
 			});
 		}
 
-		/**
-		 * Create an immutable copy of a Map
-		 * @return {Map}
-		 */
-		function cloneMap () {
-			let clone = new Map();
-			for (let [key, val] of obj) {
-				clone.set(key, copy(val));
-			}
-			return clone;
-		}
-
-		/**
-		 * Create an immutable clone of a Set
-		 * @return {Set}
-		 */
-		function cloneSet () {
-			let clone = new Set();
-			for (let item of set) {
-				clone.add(copy(item));
-			}
-			return clone;
-		}
-
-		/**
-		 * Create an immutable copy of a function
-		 * @return {Function}
-		 */
-		function cloneFunction () {
-			let clone = obj.bind(this);
-			copyProps(clone);
-			return clone;
-		}
-
 
 		//
 		// Inits
@@ -123,9 +71,6 @@ let spork = (function () {
 		// Return a clone based on the object type
 		if (type === 'object') return cloneObj();
 		if (type === 'array') return cloneArr();
-		if (type === 'map') return cloneMap();
-		if (type === 'set') return cloneSet();
-		if (type === 'function') return cloneFunction();
 		return obj;
 
 	}
@@ -135,6 +80,6 @@ let spork = (function () {
 	// Return the Public APIs
 	//
 
-	return {$, trueTypeOf, buildQuery, copy};
+	return {trueTypeOf, buildQuery, copy};
 
 })();
