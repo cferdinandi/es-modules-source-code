@@ -3,9 +3,9 @@
 
 	var answer$1 = 42;
 
-	var getTheAnswer = function () {
+	function getTheAnswer () {
 		return answer$1;
-	};
+	}
 
 	let answer = getTheAnswer();
 	let wizard = 'Radagast';

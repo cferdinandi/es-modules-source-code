@@ -1,7 +1,7 @@
 var answer = 42;
 
-var getTheAnswer = function () {
+function getTheAnswer () {
 	return answer;
-};
+}
 
 export default getTheAnswer;

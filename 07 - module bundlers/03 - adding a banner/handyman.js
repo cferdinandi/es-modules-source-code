@@ -1,5 +1,5 @@
-/*! rollup v1.0.0 | a barebones module bundler boilerplate | Copyright 2021 | MIT license */
-var handyman = (function () {
+/*! handyman v1.0.0 | A simple utility library | Copyright 2021 | MIT license */
+var handyman = (function (exports) {
 	'use strict';
 
 	/**
@@ -68,8 +68,12 @@ var handyman = (function () {
 		return [...new Set(arr)];
 	}
 
-	let handyman = {shuffle, debounce, dedupe};
+	exports.debounce = debounce;
+	exports.dedupe = dedupe;
+	exports.shuffle = shuffle;
 
-	return handyman;
+	Object.defineProperty(exports, '__esModule', { value: true });
 
-}());
+	return exports;
+
+}({}));

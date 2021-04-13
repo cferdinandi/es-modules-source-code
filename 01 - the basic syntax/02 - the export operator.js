@@ -7,7 +7,7 @@ function subtract (num1, num2) {
 }
 
 
-// You can export functions directly
+// // You can export functions directly
 // export function add (num1, num2) {
 // 	return num1 + num2;
 // }
@@ -16,5 +16,6 @@ function subtract (num1, num2) {
 // 	return num1 - num2;
 // }
 
+
 // You can also export them as an object
-// export {add, subtract};
+export {add, subtract};
